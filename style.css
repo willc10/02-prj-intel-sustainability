@@ -1,1 +1,154 @@
-/* Add your CSS here */
+/* Remove default margin and padding from the whole page */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+/* Style for the hero section box */
+.hero-section {
+  background: linear-gradient(to right, #145894 0%, #1d89d6 100%);
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hero image */
+.hero-section img {
+  width: 120px;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+/* Hero main heading */
+.hero-section h1 {
+  font-size: 3.5em;
+  margin: 20px 0 10px 0;
+  color: white;
+}
+
+/* Hero paragraph */
+.hero-section p {
+  font-size: 1.6em;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+  max-width: 600px;
+  padding: 12px 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Timeline section - horizontal scroll */
+section {
+  background-color: white;
+  margin: 0;
+  padding: 20px 0 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Enable horizontal scroll snapping */
+  scroll-snap-type: x mandatory;
+  /* Smooth scrolling for a better effect */
+  scroll-behavior: smooth;
+  /* Hide vertical scrollbar if any */
+  scrollbar-width: thin;
+}
+
+/* Each card */
+section > div {
+  position: relative;
+  width: 250px;
+  margin: 0 12px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 12px;
+  vertical-align: top;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: inline-block;
+
+  /* Make each card a snap point */
+  scroll-snap-align: start;
+}
+
+/* Content wrapper (image + headings) */
+section > div .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Images */
+section > div .content img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* Headings */
+section > div .content h2,
+section > div .content h3 {
+  text-align: center;
+  margin: 6px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Overlay */
+section > div .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(21, 80, 122, 0.95);
+  color: #145894;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  overflow-wrap: break-word;  /* Wrap long words */
+  overflow: auto;             /* scroll if too tall */
+}
+
+/* Show overlay on hover */
+section > div:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Paragraph inside overlay */
+section > div .overlay p {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  word-wrap: break-word;
+  white-space: normal;        /* ensure text wraps */
+  overflow-wrap: break-word;
+  line-height: 1.4em;
+  color: #ffffff;
+}
+
+/* Style for the instruction text under the timeline */
+/* This centers the text and makes it bigger for better visibility */
+.timeline-instructions {
+  text-align: center;      /* Center the text */
+  font-size: 1.3em;        /* Make the text a bit bigger */
+  margin-top: 24px;        /* Add space above */
+  margin-bottom: 24px;     /* Add space below */
+  color: #000000;          /* Use a color that matches the theme */
+  font-weight: bold;       /* Make the text bold */
+}
