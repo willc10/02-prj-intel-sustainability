@@ -5,6 +5,12 @@ html, body {
   background-color: white;
 }
 
+/* Use Google Fonts for the whole page */
+/* Try Merriweather first, then Roboto Slab, then Open Sans, then any serif font */
+body {
+  font-family: 'Merriweather', 'Roboto Slab', 'Open Sans', serif;
+}
+
 /* Style for the hero section box */
 .hero-section {
   background: linear-gradient(to right, #145894 0%, #1d89d6 100%);
@@ -91,7 +97,9 @@ section > div .content {
 
 /* Images */
 section > div .content img {
-  width: 100%;
+  width: 250px;         /* Set the width to 250 pixels */
+  height: 100px;        /* Set the height to 100 pixels */
+  object-fit: cover;    /* Crop the image to fit the box */
   border-radius: 4px;
   margin-bottom: 8px;
 }
@@ -151,4 +159,64 @@ section > div .overlay p {
   margin-bottom: 24px;     /* Add space below */
   color: #000000;          /* Use a color that matches the theme */
   font-weight: bold;       /* Make the text bold */
+}
+
+/* Make the site look good on smaller screens */
+@media (max-width: 600px) {
+  /* Make the hero section shorter and text smaller */
+  .hero-section {
+    height: auto; /* Let it grow with content */
+    padding: 20px 0;
+  }
+  .hero-section h1 {
+    font-size: 2em; /* Smaller heading */
+    margin: 12px 0 8px 0;
+  }
+  .hero-section p {
+    font-size: 1em; /* Smaller paragraph */
+    padding: 8px 10px;
+    max-width: 95vw; /* Use most of the screen */
+  }
+  .hero-section img {
+    width: 80px; /* Smaller logo */
+  }
+
+  /* Timeline section: stack cards vertically on small screens */
+  section {
+    display: block;           /* Remove horizontal scrolling */
+    white-space: normal;      /* Allow normal wrapping */
+    overflow-x: visible;      /* No horizontal scroll */
+    padding: 10px 0 0 0;
+    max-width: 100vw;
+  }
+  section > div {
+    display: block;           /* Stack each card vertically */
+    width: 95vw;              /* Card fills most of the screen */
+    min-width: 0;             /* Remove min-width for flexibility */
+    margin: 12px auto;        /* Center cards vertically */
+    padding: 8px;
+  }
+  section > div .content img {
+    width: 100%;              /* Image fills card width */
+    height: 80px;             /* Shorter image for mobile */
+    display: block;
+    margin: 0 auto 8px auto;  /* Center image */
+  }
+  section > div .content h2,
+  section > div .content h3 {
+    font-size: 1em; /* Smaller headings */
+    margin: 4px 0;
+  }
+  section > div .overlay {
+    font-size: 0.95em; /* Slightly smaller overlay text */
+    padding: 8px;
+  }
+
+  /* Instruction text smaller and fits screen */
+  .timeline-instructions {
+    font-size: 1em;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
 }
